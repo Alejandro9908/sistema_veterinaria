@@ -13,7 +13,7 @@ class ProductoRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class ProductoRequest extends Request
     public function rules()
     {
         return [
-            //
+            'codigo' => 'required',
+            'nombre' => 'required|max:50',
+            'id_categoria'=> 'required',
+            'descripcion' => 'max:250',
+            'precio_venta' => 'required',
+            'estado' => 'required'
         ];
     }
 }
