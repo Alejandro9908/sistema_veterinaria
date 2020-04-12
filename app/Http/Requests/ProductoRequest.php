@@ -24,12 +24,13 @@ class ProductoRequest extends Request
     public function rules()
     {
         return [
-            'codigo' => 'required',
+            'codigo' => 'max:50',
             'nombre' => 'required|max:50',
             'id_categoria'=> 'required',
             'descripcion' => 'max:250',
-            'precio_venta' => 'required',
-            'estado' => 'required'
+            'precio_venta' => 'required|numeric',
+            'stock' => 'required|numeric',
+            'imagen' => 'mimes:jpeg,bmp,png',
         ];
     }
 }
