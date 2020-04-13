@@ -190,6 +190,7 @@
                   	<div class="row">
 	                  	<div class="col-md-12">
 		                          <!--Contenido-->
+                              <!--Yield significa que será responsive-->"
                                 @yield('contenido')
 		                          <!--Fin Contenido-->
                            </div>
