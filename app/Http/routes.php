@@ -24,3 +24,5 @@ Route::resource('compras/proveedor','ProveedorController');
 
 Route::resource('acceso/usuario', 'UsuarioController');
 
+Route::resource('compras/compra', 'CompraController');
+
