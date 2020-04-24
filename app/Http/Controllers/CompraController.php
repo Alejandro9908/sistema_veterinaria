@@ -42,7 +42,7 @@ class CompraController extends Controller
     public function create(){
         $proveedores = DB::table('tbl_proveedor')->get();
         $productos = DB::table('tbl_producto as p')
-            ->select('p.nombre','p.id_producto')
+            ->select(DB::raw('CONCAT(p.id_producto,"  ",p.nombre) as product'),'p.id_producto')
             ->where('p.estado','=','1')
             ->get();
         return view("compras.compra.create",["proveedores"=>$proveedores,"productos"=>$productos]);

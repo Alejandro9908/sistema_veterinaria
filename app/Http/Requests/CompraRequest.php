@@ -29,9 +29,9 @@ class CompraRequest extends Request
             'serie' => 'max:5',
             'numero_comprobante' => 'required',
             'id_producto' => 'required',
-            'cantidad' => 'required|numeric',
-            'precio_compra' => 'required|numeric',
-            'precio_venta' => 'required|numeric'
+            'cantidad' => 'required',
+            'precio_compra' => 'required',
+            'precio_venta' => 'required'
         ];
     }
 }
