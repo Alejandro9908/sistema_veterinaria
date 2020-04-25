@@ -19,11 +19,10 @@ Route::get('/', function () {
 
 Route::resource('producto/categoria','CategoriaController');
 Route::resource('producto/producto','ProductoController');
+Route::resource('producto/servicio','ServicioController');
 Route::resource('ventas/cliente','ClienteController');
 Route::resource('compras/proveedor','ProveedorController');
-
 Route::resource('acceso/usuario', 'UsuarioController');
-
 Route::resource('compras/compra', 'CompraController');
 Route::resource('ventas/mascota', 'MascotaController');
 
