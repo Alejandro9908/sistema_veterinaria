@@ -31,7 +31,7 @@ class VentaServicioController extends Controller
             ->select('v.id_venta_servicio','v.fecha_commit','m.nombre_mascota as mascota',DB::raw('CONCAT(c.nombres," ",c.apellidos) as cliente'),'v.tipo_comprobante',
             'v.serie','v.numero_comprobante',DB::raw('sum(dv.cantidad*dv.precio_venta) as total'),'v.estado')
             ->where('v.id_venta_servicio','LIKE','%'.$query.'%')
-            ->orwhere('v.numero_comprobante','LIKE','%'.$query.'%')
+            ->where('v.estado','=','1')
             ->orderBy('v.id_venta_servicio', 'desc')
             ->groupBy('v.id_venta_servicio','v.fecha_commit','m.nombre_mascota','v.tipo_comprobante',
             'v.serie','v.numero_comprobante')
@@ -46,7 +46,7 @@ class VentaServicioController extends Controller
             ->select(DB::raw('CONCAT(m.nombre_mascota," - ",c.dpi," - ",c.nombres," ",c.apellidos) as mascota'),'m.id_mascota')
             ->get();
         $servicios = DB::table('tbl_servicio as s')
-            ->select(DB::raw('CONCAT(s.id_servicio," - ",s.nombre_servicio," - ",s.descripcion) as servicio'),'s.id_servicio','s.precio_servicio')
+            ->select(DB::raw('CONCAT(s.id_servicio," - ",s.nombre_servicio) as servicio'),'s.id_servicio','s.descripcion','s.precio_servicio')
             ->where('s.estado','=','1')
             ->get();
         return view("ventas.ventaServicio.create",["mascotas"=>$mascotas,"servicios"=>$servicios]);
@@ -67,16 +67,18 @@ class VentaServicioController extends Controller
             $ventaServicio->id_usuario='2';
             $ventaServicio->save();
 
-            $id_tipo_servicio=$request->get('id_servicio');
-            //$cantidad=$request->get('cantidad');
+            $id_servicio=$request->get('id_servicio');
             $precio_venta=$request->get('precio_venta');
+            $fecha_programada=$request->get('fecha_programada');
 
             $contador=0;
 
-            while($contador < count($id_tipo_servicio)){
+            while($contador < count($id_servicio)){
                 $detalle = new DetalleVentaServicio;
+                $detalle->id_servicio=$id_servicio[$contador];
                 $detalle->id_venta_servicio=$ventaServicio->id_venta_servicio;
-                $detalle->id_tipo_servicio=$id_tipo_servicio[$contador];
+                $detalle->fecha_programada=$fecha_programada[$contador];
+                $detalle->estado="1";
                 $detalle->cantidad="1";
                 $detalle->precio_venta=$precio_venta[$contador];
                 $detalle->save();
@@ -85,7 +87,7 @@ class VentaServicioController extends Controller
             DB::commit();
 
         }catch(\Exception $e){
-            DB::rollback();
+            //DB::rollback();
         }
 
         return Redirect::to('ventas/ventaServicio');  
@@ -102,9 +104,9 @@ class VentaServicioController extends Controller
         ->first();
 
         $detalles=DB::table('tbl_detalle_venta_servicio as d')
-        ->join('tbl_servicio as s','d.id_tipo_servicio','=','s.id_servicio')
+        ->join('tbl_servicio as s','d.id_servicio','=','s.id_servicio')
         ->select('s.nombre_servicio as servicio','s.descripcion','d.fecha_programada','d.precio_venta')
-        ->where('d.id_servicio','=',$id)
+        ->where('d.id_venta_servicio','=',$id)
         ->get();
 
         return view("ventas.ventaServicio.show",["ventaServicio"=>$ventaServicio,"detalles"=>$detalles]);

@@ -44,9 +44,7 @@
 							<th>DESCRIPCION</th>
 							<th>FECHA PROGRAMADA</th>
 							<th>PRECIO</th>
-							<th>ESTADO</th>
 						</thead>
-							<th></th>
 							<th></th>
 							<th></th>
 							<th></th>

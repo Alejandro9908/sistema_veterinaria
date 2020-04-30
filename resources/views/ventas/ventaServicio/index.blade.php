@@ -45,7 +45,11 @@
                         <td>{{$venta->serie}}</td>
                         <td>{{$venta->id_venta_servicio}}</td>
                         <td>{{$venta->total}}</td>
-                        <td>{{$venta->estado}}</td>
+                        @if($venta->estado==1)
+                            <td>ACTIVO</td>
+                        @else
+                            <td>ANULADA</td>
+                        @endif
                         <td>
                             <a href="{{URL::action('VentaServicioController@show',$venta->id_venta_servicio)}}"><button class="btn btn-info">Mostrar</button></a>
                             <a href="" data-target="#modal-delete-{{$venta->id_venta_servicio}}" data-toggle="modal"><button class="btn btn-danger">Anular</button></a>

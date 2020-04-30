@@ -45,7 +45,11 @@
                         <td>{{$cli->telefono}}</td>
                         <td>{{$cli->correo}}</td>
                         <td>{{$cli->direccion}}</td>
-                        <td>{{$cli->estado}}</td>
+                        @if($cli->estado==1)
+                            <td>ACTIVO</td>
+                        @else
+                            <td>DE BAJA</td>
+                        @endif
                         <td>{{$cli->fecha_commit}}</td>
                         <td>{{$cli->usuario}}</td>
                         <td>
