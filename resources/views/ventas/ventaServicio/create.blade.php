@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nuevo Ingreso</h3>
+			<h3>Nueva Venta de Servicio</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -14,15 +14,15 @@
 			@endif
 		</div>
 	</div>
-	{!!Form::open(array('url'=>'compras/compra','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
+	{!!Form::open(array('url'=>'ventas/ventaServicio','method'=>'POST','autocomplete'=>'off','files'=>'true'))!!}
 	{{Form::token()}}
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="form-group">
-            	<label for="proveedor">Proveedor</label>
-            	<select name="id_proveedor" id="id_proveedor" class="form-control selectpicker" data-live-search="true">
-					@foreach ($proveedores as $prov)
-						<option value="{{$prov->id_proveedor}}">{{$prov->razon_social}}</option>
+            	<label for="mascota">Mascota</label>
+            	<select name="id_mascota" id="id_mascota" class="form-control selectpicker" data-live-search="true">
+					@foreach ($mascotas as $mas)
+						<option value="{{$mas->id_mascota}}">{{$mas->mascota}}</option>
 					@endforeach
 				</select>
             </div> 
@@ -32,48 +32,29 @@
             	<label for="tipo_comprobante">Tipo de comprobante</label>
             	<select name="tipo_comprobante" id="tipo_comprobante" class="form-control">
 						<option value="Recibo">Recibo</option>
-						<option value="Factura">Factura</option>
 				</select>
             </div> 
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 			<div class="form-group">
             	<label for="serie">Serie de comprobante</label>
-            	<input type="text" name="serie" value="{{old('serie')}}" class="form-control" placeholder="Serie">
+            	<input type="text" name="serie" value="A" class="form-control" placeholder="Serie" readonly="readonly">
             </div>
 		</div>
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-			<div class="form-group">
-            	<label for="numero_comprobante">Número de comprobante</label>
-            	<input type="text" name="numero_comprobante" required value="{{old('numero_comprobante')}}" class="form-control" placeholder="Numero">
-            </div>
-		</div>	
 	</div>
 
 	<div class="row">
 		<div class="panel panel-primary">
 			<div class="panel-body">
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 					<div class="form-group">
-						<label for="producto">Productos</label>
-						<select name="id_producto" id="id_producto" class="form-control selectpicker" data-live-search="true">
-							@foreach ($productos as $prod)
-								<option value="{{$prod->id_producto}}">{{$prod->product}}</option>
+						<label for="servicio">Servicios</label>
+						<select name="id_servicio" id="id_servicio" class="form-control selectpicker" data-live-search="true">
+							@foreach ($servicios as $serv)
+								<option value="{{$serv->id_servicio}}">{{$serv->servicio}}</option>
 							@endforeach
 						</select>
 					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-					<div class="form-group">
-						<label for="cantidad">Cantidad</label>
-            			<input type="number" name="_cantidad" id="_cantidad" class="form-control" placeholder="cantidad">
-            		</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-					<div class="form-group">
-						<label for="precio_compra">Precio de Compra</label>
-            			<input type="number" name="_precio_compra" id="_precio_compra" class="form-control" placeholder="precio">
-            		</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 					<div class="form-group">
@@ -104,11 +85,11 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
 						<thead>
-							<th>PRODUCTO</th>
-							<th>CANTIDAD</th>
-							<th>PRECIO COMPRA</th>
-							<th>PRECIO VENTA</th>
-							<th>SUBTOTAL</th>
+							<th>SERVICIO</th>
+							<th>DESCRIPCION</th>
+							<th>FECHA PROGRAMADA</th>
+							<th>PRECIO</th>
+							<th>ESTADO</th>
 							<th>OPCIONES</th>
 						</thead>
 							<th></th>
@@ -124,7 +105,8 @@
 
 						</tbody>
 					</table>
-				</div>			
+				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -136,8 +118,8 @@
             	<button class="btn btn-danger" type="reset">Cancelar</button>
             </div>
 	</div>
-			{!!Form::close()!!}
-@push('scripts')
+	{!!Form::close()!!}
+	<!--@push('scripts')
 	<script>
 		$(document).ready(function(){
 			$("#btnAgregar").click(function(){
@@ -151,7 +133,7 @@
 		$("#guardar").hide();
 		
 		function agregar(){
-			id_prodcuto=$("#id_producto").val();
+			id_servicio=$("#id_producto").val();
 			producto=$("#id_producto option:selected").text();
 			cantidad=$("#_cantidad").val();
 			precio_compra=$("#_precio_compra").val();
@@ -193,5 +175,5 @@
 			verificar();
 		}
 	</script>
-@endpush
+	@endpush-->
 @endsection
