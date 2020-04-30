@@ -94,9 +94,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i>Productos</a></li>
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i>Servicios</a></li>
-                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i>Categorías</a></li>
+                <li><a href="{{url('producto/producto')}}"><i class="fa fa-circle-o"></i>Productos</a></li>
+                <li><a href="{{url('producto/servicio')}}"><i class="fa fa-circle-o"></i>Servicios</a></li>
+                <li><a href="{{url('producto/categoria')}}"><i class="fa fa-circle-o"></i>Categorías</a></li>
               </ul>
             </li>
             
@@ -107,11 +107,11 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i>Ventas</a></li>
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i>Reservas</a></li>
-                <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i>Consultas</a></li>
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i>Mascotas</a></li>
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i>Clientes</a></li>
+                <li><a href="{{url('ventas/venta')}}"><i class="fa fa-circle-o"></i>Ventas</a></li>
+                <li><a href="{{url('ventas/ventaServicio')}}"><i class="fa fa-circle-o"></i>Reservas</a></li>
+                <li><a href="{{url('ventas/consulta')}}"><i class="fa fa-circle-o"></i>Consultas</a></li>
+                <li><a href="{{url('ventas/mascota')}}"><i class="fa fa-circle-o"></i>Mascotas</a></li>
+                <li><a href="{{url('ventas/cliente')}}"><i class="fa fa-circle-o"></i>Clientes</a></li>
               </ul>
             </li>
 
@@ -122,8 +122,8 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i>Compras</a></li>
-                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i>Proveedores</a></li>
+                <li><a href="{{url('compras/compra')}}"><i class="fa fa-circle-o"></i>Compras</a></li>
+                <li><a href="{{url('compras/proveedor')}}"><i class="fa fa-circle-o"></i>Proveedores</a></li>
               </ul>
             </li>
 
@@ -134,8 +134,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/tableros/servicio"><i class="fa fa-circle-o"></i>Servicios</a></li>
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i>Consultas</a></li>
+                <li><a href="{{url('tableros/servicio')}}"><i class="fa fa-circle-o"></i>Servicios</a></li>
+                <li><a href="{{url('tableros/consulta')}}"><i class="fa fa-circle-o"></i>Consultas</a></li>
               </ul>
             </li>
 
