@@ -23,10 +23,8 @@ class ClienteController extends Controller
             ->join('tbl_usuario as u','c.id_usuario','=','u.id_usuario')
             ->select('c.id_cliente','c.dpi','c.nombres','c.apellidos','c.telefono',
             'c.correo','c.direccion','c.estado','c.fecha_commit', 'u.nick as usuario')
-            ->where('c.nombres','LIKE','%'.$query.'%')
-            ->orwhere('c.apellidos','LIKE','%'.$query.'%')
-            ->orwhere('c.id_cliente','LIKE','%'.$query.'%')
-            ->orderBy('c.estado', 'desc')
+            ->where('c.dpi','LIKE','%'.$query.'%')
+            ->where('c.estado','=','1')
             ->orderBy('c.id_cliente', 'desc')
             ->paginate(6);
             return view('ventas.cliente.index',["clientes"=>$clientes,"searchText"=> $query]);

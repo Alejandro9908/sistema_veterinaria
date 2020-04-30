@@ -54,7 +54,11 @@
                         <td>{{$mascota->fecha_nacimiento}}</td>
                         <td>{{$mascota->observacion}}</td>
                         <td>{{$mascota->fecha_commit}}</td>
-                        <td>{{$mascota->estado}}</td>
+                        @if($mascota->estado==1)
+                            <td>ACTIVO</td>
+                        @else
+                            <td>DE BAJA</td>
+                        @endif
                         <td>{{$mascota->usuario}}</td>
                         <td>
                             <a href="{{URL::action('MascotaController@edit',$mascota->id_mascota)}}"><button class="btn btn-info">Editar</button></a>

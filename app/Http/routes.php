@@ -27,4 +27,6 @@ Route::resource('compras/compra', 'CompraController');
 Route::resource('ventas/mascota', 'MascotaController');
 Route::resource('ventas/ventaServicio', 'VentaServicioController');
 Route::resource('ventas/venta', 'VentaController');
+Route::resource('tableros/servicio', 'TableroDetalleVentaServicioController');
+
 

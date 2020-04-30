@@ -129,6 +129,18 @@
 
             <li class="treeview">
               <a href="#">
+                <i class="fa fa-th"></i>
+                <span>Tableros</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="/tableros/servicio"><i class="fa fa-circle-o"></i>Servicios</a></li>
+                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i>Consultas</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
                 <i class="fa fa-folder"></i>
                 <span>Reportes</span>
                  <i class="fa fa-angle-left pull-right"></i>

@@ -4,7 +4,7 @@ namespace sisVeterinaria\Http\Requests;
 
 use sisVeterinaria\Http\Requests\Request;
 
-class VentaServicioRequest extends Request
+class TableroDetalleVentaServicioRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,6 @@ class VentaServicioRequest extends Request
     public function rules()
     {
         return [
-            'id_mascota' => 'required',
-            'tipo_comprobante' => 'max:15',
-            'serie' => 'max:5'
             
         ];
     }
