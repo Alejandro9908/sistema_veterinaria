@@ -17,7 +17,7 @@ use sisVeterinaria\Http\Requests;
 class ConsultaController extends Controller
 {
     public function __construct(){
-
+        $this-> middleware('auth');
     }
 
     public function index(Request $request){
@@ -59,7 +59,7 @@ class ConsultaController extends Controller
             $consulta->fecha_programada=$request->get('fecha_programada');
             $consulta->estado='1';
             $consulta->fecha_commimt=$fecha->format('Y-m-d h:i:s');
-            $consulta->id_usuario='2';
+            $consulta->id_usuario=$request->get('id_usuario');
             $consulta->tipo_comprobante=$request->get('tipo_comprobante');
             $consulta->serie=$request->get('serie');
             $consulta->numero_comprobante=$request->get('numero_comprobante');

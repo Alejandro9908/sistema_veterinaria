@@ -87,7 +87,11 @@
             	<input type="date"  name="fecha_nacimiento" class="form-control" placeholder="YYYY-MM-DD">
 			</div>
 		</div>
-
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="form-group">
+            	<input type="text" style="visibility:hidden" name="id_usuario" class="form-control" value="{{ Auth::user()->id_usuario}}">
+            </div>
+		</div>
 		
 	</div>
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

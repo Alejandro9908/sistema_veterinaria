@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'admins' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ]
     ],
 
     /*
@@ -67,7 +72,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => sisVeterinaria\User::class,
+            'model' => sisVeterinaria\Usuario::class,
+        ],
+    
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => sisVeterinaria\Usuario::class,
         ],
 
         // 'users' => [

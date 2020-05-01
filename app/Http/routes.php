@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::resource('producto/categoria','CategoriaController');
@@ -32,3 +32,7 @@ Route::resource('ventas/consulta', 'ConsultaController');
 Route::resource('tableros/consulta', 'TableroConsultaController');
 
 
+Route::auth();
+Route::get('acceso/login','LoginController@showLoginForm');
+Route::post('acceso/login','LoginController@login');
+Route::get('/home', 'HomeController@index');

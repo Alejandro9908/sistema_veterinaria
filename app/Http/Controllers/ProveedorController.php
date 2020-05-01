@@ -13,7 +13,7 @@ use sisVeterinaria\Http\Requests;
 class ProveedorController extends Controller
 {
     public function __construct(){
-
+        $this-> middleware('auth');
     }
 
     public function index(Request $request){
@@ -47,7 +47,7 @@ class ProveedorController extends Controller
         $proveedor->direccion=$request->get('direccion');
         $proveedor->estado='1';
         $proveedor->fecha_commit=$fecha->format('Y-m-d h:i:s');
-        $proveedor->id_usuario='2';
+        $proveedor->id_usuario=$request->get('id_usuario');
         $proveedor->save();
         return Redirect::to('compras/proveedor');
     }
