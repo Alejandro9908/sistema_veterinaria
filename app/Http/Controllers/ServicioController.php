@@ -16,7 +16,7 @@ use sisVeterinaria\Http\Requests\TipoServicioRequest;
 class ServicioController extends Controller
 {
     public function __construct(){
-
+        $this-> middleware('auth');
     }
 
     public function index(Request $request){
@@ -46,7 +46,7 @@ class ServicioController extends Controller
         $servicio->descripcion=$request->get('descripcion');
         $servicio->precio_servicio=$request->get('precio_servicio');
         $servicio->fecha_commit=$fecha->format('Y-m-d h:i:s');
-        $servicio->id_usuario='2';
+        $servicio->id_usuario=$request->get('id_usuario');
         $servicio->estado='1';
         $servicio->save();
         return Redirect::to('producto/servicio');

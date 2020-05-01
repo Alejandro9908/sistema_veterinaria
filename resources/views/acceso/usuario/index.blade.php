@@ -3,11 +3,12 @@
 
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Listado de Usuarios  <a href ="usuario/create"><button class = "btn btn-success">Nuevo</button></a>    </h3>
+		<h3>Listado de Usuarios </h3>
 		@include('acceso.usuario.search')
+		<a href ="usuario/create"><button class = "btn btn-primary">Nuevo Usuario</button></a> 
 	</div>
 </div>
-
+<hr>
 
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -27,7 +28,6 @@
 					<th>Cargo</th>
 					<th>Permisos</th>
 					<th>Nick</th>
-					<th>Contrasenia</th>
 					<th>Fecha_commit</th>
 					<th>Opciones</th>
 				</thead>
@@ -40,12 +40,11 @@
 					<td>{{ $cat->fecha_nacimiento}}</td>
 					<td>{{ $cat->fecha_inicio}}</td>
 					<td>{{ $cat->telefono}}</td>
-					<td>{{ $cat->correo}}</td>
+					<td>{{ $cat->email}}</td>
 					<td>{{ $cat->direccion}}</td>
 					<td>{{ $cat->cargo}}</td>
 					<td>{{ $cat->permisos}}</td>
 					<td>{{ $cat->nick}}</td>
-					<td>{{ $cat->contrasenia}}</td>
 					<td>{{ $cat->fecha_commit}}</td>
 
 					<td>

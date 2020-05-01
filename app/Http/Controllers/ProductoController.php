@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller{
     public function __construct(){
-
+        $this-> middleware('auth');
     }
 
     public function index(Request $request){
@@ -46,7 +46,7 @@ class ProductoController extends Controller{
         $producto->precio_venta=$request->get('precio_venta');
         $producto->stock=$request->get('stock');
         $producto->fecha_commit=$fecha->format('Y-m-d');
-        $producto->id_usuario='2';
+        $producto->id_usuario=$request->get('id_usuario');
         $producto->estado='1';
         if(Input::hasFile('imagen')){
             $file=Input::file('imagen');

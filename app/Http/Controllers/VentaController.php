@@ -18,7 +18,7 @@ use sisVeterinaria\Http\Requests;
 class VentaController extends Controller
 {
     public function __construct(){
-
+        $this-> middleware('auth');
     }
 
     public function index(Request $request){
@@ -66,7 +66,7 @@ class VentaController extends Controller
             $venta->total_venta=$request->get('total_venta');
             $venta->estado='1';
             $venta->fecha_commit=$fecha->format('Y-m-d h:i:s');
-            $venta->id_usuario='2';
+            $venta->id_usuario=$request->get('id_usuario');
             $venta->save();
 
             $id_producto=$request->get('id_producto');

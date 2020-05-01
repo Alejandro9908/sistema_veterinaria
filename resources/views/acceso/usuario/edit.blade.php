@@ -49,8 +49,8 @@
             </div>
 
             <div class="form-group">
-            	<label for="correo">Correo electrónico</label>
-            	<input type="text" name="correo" class="form-control" value="{{$usuario->correo}}" placeholder="Correo electrónico">
+            	<label for="email">Correo electrónico</label>
+            	<input type="text" name="email" class="form-control" value="{{$usuario->email}}" placeholder="Correo electrónico">
             </div>
 
              <div class="form-group">
@@ -80,8 +80,8 @@
             </div>
 
             <div class="form-group">
-            	<label for="contrasenia">Contraseña</label>
-            	<input type="text" name="contrasenia" class="form-control" value="{{$usuario->contrasenia}}" placeholder="Contraseña">
+            	<label for="password">Contraseña</label>
+            	<input type="text" name="password" class="form-control" value="{{$usuario->password}}" placeholder="Contraseña">
             </div>
 
            

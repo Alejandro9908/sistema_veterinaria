@@ -22,6 +22,9 @@
             <div class="form-group">
             	<label for="descripcion">Descripción</label>
             	<input type="text" name="descripcion" class="form-control" placeholder="Descripció...(OPCIONAL)">
+			</div>
+			<div class="form-group">
+            	<input type="text" disabled name="id_usuario" class="form-control" value="{{ Auth::user()->id_usuario}}">
             </div>
             <div class="form-group">
             	<button class="btn btn-primary" type="submit">Guardar</button>

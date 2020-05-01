@@ -13,7 +13,7 @@ use sisVeterinaria\Http\Requests;
 class ClienteController extends Controller
 {
     public function __construct(){
-
+        $this-> middleware('auth');
     }
 
     public function index(Request $request){
@@ -46,7 +46,7 @@ class ClienteController extends Controller
         $cliente->direccion=$request->get('direccion');
         $cliente->estado='1';
         $cliente->fecha_commit=$fecha->format('Y-m-d h:i:s');
-        $cliente->id_usuario='2';
+        $cliente->id_usuario=$request->get('id_usuario');
         $cliente->save();
         return Redirect::to('ventas/cliente');
     }

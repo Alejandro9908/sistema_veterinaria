@@ -55,13 +55,13 @@ class UsuarioController extends Controller
     	$usuario->fecha_nacimiento= $request->get('fecha_nacimiento');
     	$usuario->fecha_inicio= $request->get('fecha_inicio');
     	$usuario->telefono= $request->get('telefono');
-    	$usuario->correo= $request->get('correo');
+    	$usuario->email= $request->get('email');
     	$usuario->direccion= $request->get('direccion');
     	$usuario->cargo= $request->get('cargo');
     	$usuario->permisos= $request->get('permisos');
     	$usuario->estado ='1';
     	$usuario->nick= $request->get('nick');
-    	$usuario->contrasenia= $request->get('contrasenia');
+    	$usuario->password=bcrypt($request->get('password'));
     	$usuario->fecha_commit= $fecha->format('Y-m-d h:i:s');
 
     	$usuario->save();
@@ -90,17 +90,16 @@ class UsuarioController extends Controller
     	$usuario->fecha_nacimiento= $request->get('fecha_nacimiento');
     	$usuario->fecha_inicio= $request->get('fecha_inicio');
     	$usuario->telefono= $request->get('telefono');
-    	$usuario->correo= $request->get('correo');
+    	$usuario->email= $request->get('email');
     	$usuario->direccion= $request->get('direccion');
     	$usuario->cargo= $request->get('cargo');
     	$usuario->permisos= $request->get('permisos');
     	$usuario->estado='1';
     	$usuario->nick= $request->get('nick');
-    	$usuario->contrasenia= $request->get('contrasenia');
+    	$usuario->password= bcrypt($request->get('password'));
     	//$usuario->fecha_commit= $request->get('fecha_commit');
 
     	$usuario->update();
-
     	return Redirect::to('acceso/usuario');
 
     }

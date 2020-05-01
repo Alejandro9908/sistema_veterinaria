@@ -53,10 +53,11 @@
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    
+                    <p>Nombre: {{ Auth::user()->nombres}}</p>
+                    <p>{{ Auth::user()->apellidos}}</p>
                     <p>
-                      www.incanatoit.com - Desarrollando Software                    <!--VENTANITA DE PERFIL-->
-                      <small>www.youtube.com/jcarlosad7</small>
+                      <small>Nick: {{ Auth::user()->nick }}</small>                   <!--VENTANITA DE PERFIL-->
+                      <small>Correo: {{ Auth::user()->email }}</small>
                     </p>
                   </li>
                   
@@ -64,7 +65,7 @@
                   <li class="user-footer">
                     
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Cerrar</a>
+                      <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Salir</a>
                     </div>
                   </li>
                 </ul>
