@@ -97,10 +97,14 @@
               <ul class="treeview-menu">
                 <li><a href="{{url('producto/producto')}}"><i class="fa fa-circle-o"></i>Productos</a></li>
                 <li><a href="{{url('producto/servicio')}}"><i class="fa fa-circle-o"></i>Servicios</a></li>
-                <li><a href="{{url('producto/categoria')}}"><i class="fa fa-circle-o"></i>Categorías</a></li>
+                @if(Auth::user()->permisos == 'Vendedor')
+               
+                @endif
+                @if(Auth::user()->permisos == 'Administrador')
+                <li disabled><a href="{{url('producto/categoria')}}"><i class="fa fa-circle-o"></i>Categorías</a></li>
+                @endif
               </ul>
             </li>
-            
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
