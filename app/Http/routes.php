@@ -36,3 +36,5 @@ Route::auth();
 Route::get('acceso/login','LoginController@showLoginForm');
 Route::post('acceso/login','LoginController@login');
 Route::get('/home', 'HomeController@index');
+
+

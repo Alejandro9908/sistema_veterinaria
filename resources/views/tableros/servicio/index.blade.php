@@ -15,7 +15,6 @@
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <h3>Servicios Pendientes</h3>
             @include('tableros.servicio.search')
-            
         </div> 
     </div>
     <hr>
@@ -35,6 +34,7 @@
                         <th>OPCIONES</th>
                     </thead>
                     @foreach ($detalles as $det)
+                    
                     <tr>
                         <td>{{$det->id_venta_servicio}}</td>
                         <td>{{$det->id_detalle_venta_servicio}}</td>
@@ -53,6 +53,7 @@
                         </td>
                     </tr>
                     @include('tableros.servicio.modal')
+                  
                     @endforeach
                     
                 </table>

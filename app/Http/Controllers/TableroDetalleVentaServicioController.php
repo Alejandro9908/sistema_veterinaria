@@ -21,8 +21,10 @@ class TableroDetalleVentaServicioController extends Controller
         $this-> middleware('auth');
     }
 
+    //<!--@if($det->fecha_programada == date('Y-m-d'))-->
     public function index(Request $request){
         $fecha = Carbon::now();
+        $hoy = '2020-05-13';
         if($request){
             $query=trim($request->get('searchText'));
             $detalles=DB::table('tbl_detalle_venta_servicio as d')
@@ -32,13 +34,13 @@ class TableroDetalleVentaServicioController extends Controller
             ->join('tbl_cliente as c','c.id_cliente','=','m.id_cliente')
             ->select('v.id_venta_servicio','d.id_detalle_venta_servicio','s.nombre_servicio as servicio',
             's.descripcion','d.fecha_programada','m.nombre_mascota as mascota','c.nombres as cliente','d.estado')
-            ->where('m.nombre_mascota','LIKE','%'.$query.'%')
+            ->where('d.id_venta_servicio','LIKE','%'.$query.'%')
             ->where('v.estado','=','1')
             ->where('d.estado','=','1')
             ->orderBy('d.fecha_programada', 'asc')
             ->orderBy('d.id_detalle_venta_servicio', 'asc')
             ->paginate(6);
-            return view('tableros.servicio.index',["detalles"=>$detalles,"searchText"=> $query]);
+            return view('tableros.servicio.index',["detalles"=>$detalles,"searchText"=> $query,'dia'=>$hoy]);
         }
     }
 
