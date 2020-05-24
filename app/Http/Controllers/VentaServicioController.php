@@ -44,6 +44,7 @@ class VentaServicioController extends Controller
         $mascotas = DB::table('tbl_mascota as m')
             ->join('tbl_cliente as c','m.id_cliente','=','c.id_cliente')
             ->select(DB::raw('CONCAT(m.nombre_mascota," - ",c.dpi," - ",c.nombres," ",c.apellidos) as mascota'),'m.id_mascota')
+            ->where('m.estado','=','1')
             ->get();
         $servicios = DB::table('tbl_servicio as s')
             ->select(DB::raw('CONCAT(s.id_servicio," - ",s.nombre_servicio) as servicio'),'s.id_servicio','s.descripcion','s.precio_servicio')

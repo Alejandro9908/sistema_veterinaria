@@ -90,19 +90,12 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-th"></i>
-                <span>Productos</span>
+                <i class="fa fa-paw"></i>
+                <span>Servicios</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{url('producto/producto')}}"><i class="fa fa-circle-o"></i>Productos</a></li>
                 <li><a href="{{url('producto/servicio')}}"><i class="fa fa-circle-o"></i>Servicios</a></li>
-                @if(Auth::user()->permisos == 'Vendedor')
-               
-                @endif
-                @if(Auth::user()->permisos == 'Administrador')
-                <li disabled><a href="{{url('producto/categoria')}}"><i class="fa fa-circle-o"></i>Categorías</a></li>
-                @endif
               </ul>
             </li>
             <li class="treeview">
@@ -112,7 +105,6 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{url('ventas/venta')}}"><i class="fa fa-circle-o"></i>Ventas</a></li>
                 <li><a href="{{url('ventas/ventaServicio')}}"><i class="fa fa-circle-o"></i>Reservas</a></li>
                 <li><a href="{{url('ventas/consulta')}}"><i class="fa fa-circle-o"></i>Consultas</a></li>
                 <li><a href="{{url('ventas/mascota')}}"><i class="fa fa-circle-o"></i>Mascotas</a></li>
@@ -120,21 +112,11 @@
               </ul>
             </li>
 
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-th"></i>
-                 <span>Compras</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{url('compras/compra')}}"><i class="fa fa-circle-o"></i>Compras</a></li>
-                <li><a href="{{url('compras/proveedor')}}"><i class="fa fa-circle-o"></i>Proveedores</a></li>
-              </ul>
-            </li>
+            
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-th"></i>
+                <i class="fa  fa-calendar"></i>
                 <span>Tableros</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -146,40 +128,15 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i>
-                <span>Reportes</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i> Ventas</a></li>
-                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
-              </ul>
-            </li>
-
-            <hr>
-
-            <li class="treeview">
-              <a href="#">
                 <i class="fa fa-laptop"></i> <span>Acceso</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+                <li><a href="{{url('acceso/usuario')}}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                 
               </ul>
             </li>
-             <li>
-              <a href="#">
-                <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                <!--<small class="label pull-right bg-red">PDF</small>-->
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-              </a>
-            </li>
-                        
+             
           </ul>
         </section>
         <!-- /.sidebar -->
@@ -224,12 +181,7 @@
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
       <!--Fin-Contenido-->
-      <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
-        </div>
-        <strong>Copyright &copy; 2020</strong> All rights reserved.
-      </footer>
+      
 
       
     <!-- jQuery 2.1.4 -->

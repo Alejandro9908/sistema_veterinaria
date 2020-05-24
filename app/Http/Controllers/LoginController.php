@@ -16,7 +16,7 @@ class LoginController extends Controller
     protected $guard = 'admins';
 
     public function authenticated(){
-        return redirect('ventas/venta');
+        return redirect('ventas/mascota');
     }
 
     public function secret(){
